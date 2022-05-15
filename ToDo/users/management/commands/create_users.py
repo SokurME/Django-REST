@@ -5,6 +5,8 @@ from users.models import User
 class Command(BaseCommand):
     def handle(self, *args, **options):
         User.objects.all().delete()
-        super_user = User.objects.create_superuser('admin', 'admin@dfr.local', '123')
+        super_user = User.objects.create_superuser('admin', 'admin@dfr.local', '123', firstname='admin',
+                                                   lastname='admin')
         for i in range(3):
-            user = User.objects.create_user(f'user{i}', f'{i}@mail.ru')
+            user = User.objects.create_user(username=f'user{i}', email=f'user{i}@mail.ru', firstname=f'user{i}',
+                                            lastname=f'user{i}')
