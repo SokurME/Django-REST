@@ -8,4 +8,5 @@ class Command(BaseCommand):
         super_user = User.objects.create_superuser('admin', 'admin@dfr.local', '123', firstname='admin',
                                                    lastname='admin')
         for i in range(3):
-            user = User.objects.create_user(f'user{i}', f'user{i}@mail.ru', firstname=f'user{i}', lastname=f'user{i}')
+            user = User.objects.create_user(username=f'user{i}', email=f'user{i}@mail.ru', firstname=f'user{i}',
+                                            lastname=f'user{i}')

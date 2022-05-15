@@ -8,3 +8,6 @@ class User(AbstractUser):
     firstname = models.CharField('Имя', max_length=75, blank=True)
     lastname = models.CharField('Фамилия', max_length=75, blank=True)
     email = models.EmailField(verbose_name='Электронный адрес', max_length=254, unique=True)
+
+    def __str__(self):
+        return f'{self.username} {self.firstname} {self.lastname} {self.email}'
