@@ -7,6 +7,9 @@ class Project(models.Model):
     link = models.URLField('Ссылка на репозиторий', blank=True)
     users = models.ManyToManyField(User)
 
+    def __str__(self):
+        return self.name
+
 
 class TODO(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
